@@ -2,11 +2,13 @@
 import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./App.css";
+import { motion, AnimatePresence } from "framer-motion";
 import { FiDownload } from "react-icons/fi"; // Feather icon
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import SkillsSection from "./components/Skills";
 import { FaReact, FaNodeJs } from "react-icons/fa";
+import AnimatedText from "./components/AnimatedText";
 // import ProjectExperienceCard from "./components/Experience";
 import {
   SiPostgresql,
@@ -60,6 +62,7 @@ function App() {
   };
   return (
     <>
+    {/* <AnimatedText text={"Hello, I'm Mayank Kumar"} speed={50} /> */}
       <div className="  w-[100%] m-0 md:relative ">
         <div className="w-full  grid grid-cols-1 md:relative md:grid-cols-10 m-0">
           <div className=" lg:fixed justify-center items-center  md:w-[45%] h-screen  border-gray-50 p-5 lg:p-6   flex flex-col  min-w-[300px] max-w-[800px]">
@@ -69,11 +72,11 @@ function App() {
                 alt=" profile img"
                 className=" w-20 h-20 md:w-40 md:h-40 rounded-full border-3 justify-start border-white"
               />
-              <h1 className="text-xl sm:text-2xl flex-wrap md:text-4xl font-bold text-gray-100">
-                Mayank Kumar
+              <h1 className="text-xl sm:text-2xl flex-wrap md:text-4xl font-bold text-green-500">
+                <AnimatedText text={"Mayank Kumar"} speed={50} />
               </h1>
               <h1 className="md:text-xl text-md text-gray-400 ">
-                Full Stack Developer
+               <AnimatedText text={"Full Stack Developer"} speed={50} />
               </h1>
               <p className="text-sm md:text-lg text-gray-500">
                 📍Jaipur,Rajsthan
@@ -140,9 +143,21 @@ function App() {
           </div>
         </div>
       </div>
-       {isOpen && (
-        <div className="fixed inset-0 bg-black/70  flex items-center justify-center z-50">
-          <div className="bg-white w-[30%] h-[60%] p-6 rounded-xl shadow-xl relative text-black">
+      <AnimatePresence>
+ {isOpen && (
+         <motion.div
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+           <motion.div
+              className="bg-white w-[90%] sm:w-[60%] md:w-[40%] p-6 rounded-2xl shadow-xl relative text-black"
+              initial={{ scale: 0.7, y: 50, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.6, y: 50, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
             <h2 className="text-lg font-bold mb-4">Leave a Message here</h2>
             <form onSubmit={handleSubmit} ref={form} className="space-y-4">
               <input
@@ -175,9 +190,11 @@ function App() {
             >
               ✕
             </button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
+      </AnimatePresence>
+      
     </>
   );
 }
