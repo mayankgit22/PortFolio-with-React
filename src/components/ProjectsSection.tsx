@@ -103,8 +103,8 @@ const ProjectExperienceSection = () => {
         responsibilities={[
           "Built secure user login with OTP simulation and session state.",
           "Created send/receive payment flow using dummy UPI logic.",
-          "Handled balances and transactions with PostgreSQL.",
-          "Built dashboard UI to show history, balances, and QR send.",
+          "Handled balances and transactions with MongoDB.",
+          "Built dashboard UI to show user's Name, balances.",
         ]}
         techStack={[
           "React",

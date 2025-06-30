@@ -70,14 +70,16 @@ function App() {
               <img
                 src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2F0fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
                 alt=" profile img"
-                className=" w-20 h-20 md:w-40 md:h-40 rounded-full border-3 justify-start border-white"
+                className=" w-20 h-20 md:w-40  md:hover:shadow-green-500 md:hover:shadow-lg md:hover:scale-105 transition-all duration-300 hover:cursor-pointer transform-stroke
+                
+                md:h-40 rounded-full border-3 justify-start border-white"
               />
-              <h1 className="text-xl sm:text-2xl flex-wrap md:text-4xl font-bold text-green-500">
-                <AnimatedText text={"Mayank Kumar"} speed={50} />
+              <h1 className="text-xl sm:text-2xl flex-wrap md:text-2xl font-bold  text-green-500">
+                <AnimatedText text={"Mayank Kumar"} speed={60} />
               </h1>
-              <h1 className="md:text-xl text-md text-gray-400 ">
+              <h3 className="md:text-md text-sm text-gray-400 ">
                <AnimatedText text={"Full Stack Developer"} speed={50} />
-              </h1>
+              </h3>
               <p className="text-sm md:text-lg text-gray-500">
                 📍Jaipur,Rajsthan
               </p>

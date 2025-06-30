@@ -1,6 +1,14 @@
 
 
 @import "tailwindcss";
+.nokia-style {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+
+    font-weight: 600;
+  }
+   
+
 :root {
 
 /* padding: 1%; */

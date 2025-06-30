@@ -12,7 +12,7 @@ const AnimatedText:React.FC<AnimatedTextProps> = ({ text, speed }) => {
   useEffect(() => {
     let iterations = 0;
     const interval = setInterval(() => {
-      setDisplayedText((prev) =>
+      setDisplayedText(() =>
         text
           .split("")
           .map((char, i) => {
@@ -23,13 +23,13 @@ const AnimatedText:React.FC<AnimatedTextProps> = ({ text, speed }) => {
       );
 
       if (iterations >= text.length) clearInterval(interval);
-      iterations += 1 / 2; // slows down the reveal
+      iterations += 1 / 2; 
     }, speed);
 
     return () => clearInterval(interval);
-  }, [text]);
+  }, [text,speed]);
 
-  return <span className="font-mono ">{displayedText}</span>;
+  return <span className="nokia-style">{displayedText}</span>;
 };
 
 export default AnimatedText;
